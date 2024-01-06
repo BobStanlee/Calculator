@@ -1,4 +1,4 @@
-:roots {
+:root {
     --first-color: #102A3E;
     --second-color: #092235;
     --third-color: #0C2941;
@@ -18,4 +18,53 @@ body {
     width: 100%;
     height: 100vh;
     background: #DCE3EB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    background: var(--second-color);
+    color: var(--font-color);
+    border: none;
+    border-radius: 20px;
+}
+
+.theme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 60px;
+}
+
+.theme div {
+    padding: 5px 15px;
+    border-radius: 5px 0 0 5px;
+}
+
+.day {
+    background-color: var(--symbol-color);
+    color: var(--second-color);
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 15px;
+    margin-bottom: 40px;
+}
+
+.input-display {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.results-display {
+    font-size: 30px;
+}
+
+.button-container {}
