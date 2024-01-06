@@ -1,0 +1,21 @@
+:roots {
+    --first-color: #102A3E;
+    --second-color: #092235;
+    --third-color: #0C2941;
+    --symbol-color: #35A1A1;
+    --accent-color: orangered;
+    --font-color: #FFFFFF;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100vh;
+    background: #DCE3EB;
+}
