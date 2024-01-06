@@ -3,7 +3,7 @@
     --second-color: #092235;
     --third-color: #0C2941;
     --symbol-color: #35A1A1;
-    --accent-color: orangered;
+    --orangered-color: orangered;
     --font-color: #FFFFFF;
 }
 
@@ -24,12 +24,15 @@ body {
 }
 
 .calculator-container {
+    max-width: 400px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background: var(--second-color);
     color: var(--font-color);
     border: none;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .theme {
@@ -42,11 +45,16 @@ body {
 .theme div {
     padding: 5px 15px;
     border-radius: 5px 0 0 5px;
+    color: var(--font-color);
+}
+
+.day, .night {
+    font-size: 25px;
 }
 
 .day {
     background-color: var(--symbol-color);
-    color: var(--second-color);
+    
 }
 
 .display {
@@ -61,10 +69,31 @@ body {
 
 .input-display {
     color: rgba(255, 255, 255, 0.75);
-}
-
-.results-display {
     font-size: 30px;
 }
 
-.button-container {}
+.results-display {
+    font-size: 40px;
+}
+
+.button-container {
+    height: 500px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.key {
+    background-color: var(--first-color);
+    color: var(--font-color);
+    border: none;
+    font-size: 20px;
+}
+
+.symbol {
+    color: var(--symbol-color);
+}
+
+.accent {
+    color: var(--orangered-color);
+}
