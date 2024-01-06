@@ -23,3 +23,16 @@ function multiply(num1, num2) {
 function divide(num1, num2) {
     return num1 / num2;
 }
+
+// Function to choose which calculation to perform 
+function operate(firstNumber, operator, lastNumber) {
+    if(operator == '+') {
+        results = add(firstNumber, lastNumber);
+    } else if(operator == '-') {
+        results = sub(firstNumber, lastNumber);
+    } else if(operator == '*') {
+        results = sub(firstNumber, lastNumber);
+    } else if(operator == '/') {
+        results = sub(firstNumber, lastNumber);
+    }
+}
