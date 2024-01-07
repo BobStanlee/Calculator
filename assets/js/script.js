@@ -1,6 +1,3 @@
-let accumulator = 0; // Initialize an accumulator to store ongoing results
-let operator = '';
-let lastNumber = null;
 let inputs = []; // Initialize inputs array
 
 
@@ -35,7 +32,10 @@ function operate(inputs) {
     let accumulator = 0;
     let secondNumber = null;
 
-    inputs.forEach(input => {
+// Remove empty spaces from the array
+let cleanedArray = inputs.filter(item => item.trim() !== '');
+
+    cleanedArray.forEach(input => {
         if (!isNaN(parseFloat(input))) {
             if (accumulator === 0) {
                 accumulator = parseFloat(input);
@@ -69,7 +69,6 @@ function captureInputs() {
     let keys = document.querySelectorAll('.key');
     let inputDisplay = document.querySelector('.input-display');
     let resultsDisplay = document.querySelector('.results-display');
-    let inputs = []; // Initialize inputs array
 
     keys.forEach((key) => {
         key.addEventListener('click', () => {
@@ -84,20 +83,19 @@ function captureInputs() {
             }
             
             else {
-                inputs.push(key.value);
-                
-                // Clear the display before updating with new input
-                inputDisplay.textContent = '';
-
-                // Update display with all inputs separated by spaces
-                inputs.forEach((input, index) => {
-                    // Avoid adding space after the last input
-                    if (index !== inputs.length - 1) {
-                        inputDisplay.textContent += `${input} `;
+                if (!isNaN(parseFloat(key.value)) || key.value === '.') {
+                    // Check if the last input was an operator or if the inputs array is empty
+                    if (inputs.length === 0 || isNaN(parseFloat(inputs[inputs.length - 1]))) {
+                        inputs.push(key.value);
                     } else {
-                        inputDisplay.textContent += `${input}`;
+                        inputs[inputs.length - 1] += key.value;
                     }
-                });
+                } else {
+                    // Handle operators
+                    inputs.push(' ', key.value, ' '); // Space the operator for display
+                }
+
+                    inputDisplay.textContent = inputs.join(''); // Display the current input 
             }
         });
     });
