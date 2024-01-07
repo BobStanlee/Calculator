@@ -36,3 +36,31 @@ function operate(firstNumber, operator, lastNumber) {
         results = sub(firstNumber, lastNumber);
     }
 }
+
+// This function stores inputs from the keys and update the display
+function captureInputs() {
+    let keys = document.querySelectorAll('.key');
+    let inputDisplay = document.querySelector('.input-display');
+    let inputs = []; // Initialize inputs array
+
+    keys.forEach((key) => {
+        key.addEventListener('click', () => {
+            inputs.push(key.value);
+            
+            // Clear the display before updating with new input
+            inputDisplay.textContent = '';
+
+            // Update display with all inputs separated by spaces
+            inputs.forEach((input, index) => {
+                // Avoid adding space after the last input
+                if (index !== inputs.length - 1) {
+                    inputDisplay.textContent += `${input} `;
+                } else {
+                    inputDisplay.textContent += `${input}`;
+                }
+            });
+        });
+    });
+}
+
+captureInputs();
