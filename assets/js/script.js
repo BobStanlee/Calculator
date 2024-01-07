@@ -81,6 +81,19 @@ function captureInputs() {
             else if(key.value === '=') {
                 resultsDisplay.textContent = operate(inputs); // Call operate and display result on the resultsDisplay
             }
+
+            // Deletes Previous Value
+            else if(key.value === 'del') {
+                if(inputs.length === 0) {
+                    inputs;
+                } else if(inputs.length > 0) {
+                    inputs.splice(-1, 1); // Removes last value
+                    if(inputs[inputs.length - 1] === ' ') {
+                        inputs.splice(-1, 1); // Removes last value if is an empty string
+                    }
+                    inputDisplay.textContent = inputs.join(''); // Display the current input 
+                }
+            }
             
             else {
                 if (!isNaN(parseFloat(key.value)) || key.value === '.') {
