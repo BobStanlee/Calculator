@@ -13,7 +13,7 @@ function sub(num1, num2) {
 
 // Multiplication Function
 function multiply(num1, num2) {
-    return num1 * num2;
+    return (num1 * num2);
 }
 
 // Division Function 
@@ -42,21 +42,22 @@ function operate(inputs) {
             } else {
                 secondNumber = parseFloat(input);
                 if (operator === '+') {
-                    accumulator = accumulator + secondNumber;
+                    accumulator = add(accumulator, secondNumber);
                 } else if (operator === '-') {
-                    accumulator = accumulator - secondNumber;
-                } else if (operator === '*') {
-                    accumulator = accumulator * secondNumber;
+                    accumulator = sub(accumulator, secondNumber);
+                } else if (operator === 'X') {
+                    accumulator = multiply(accumulator, secondNumber);
                 } else if (operator === '/') {
                     if (secondNumber !== 0) {
-                        accumulator = accumulator / secondNumber;
+                        accumulator = divide(accumulator, secondNumber);
                     } else {
                         // Handle division by zero
                         accumulator = 'Division by zero error';
                     }
                 } else if (operator === '%') {
-                    accumulator = accumulator % secondNumber;
+                    accumulator = modulo(accumulator, secondNumber);
                 }
+                // console.log(accumulator, operator, secondNumber);
                 operator = '';
                 secondNumber = null;
             }
@@ -65,7 +66,7 @@ function operate(inputs) {
         }
     });
 
-    result = accumulator; // Assign the final result
+    result = roundDecimalPlaces(accumulator); // Assign the final result
     return result;
 }
 
@@ -126,6 +127,10 @@ function captureInputs() {
             }
         });
     });
+}
+
+function roundDecimalPlaces(number, place=6) {
+    return Number(number.toFixed(place));
 }
 
 
