@@ -78,6 +78,8 @@ function captureInputs() {
 
     keys.forEach((key) => {
         key.addEventListener('click', () => {
+            resultsDisplay.classList.remove('error');
+
             if (key.value === 'c') {
                 inputs = []; // Clear the inputs array
                 inputDisplay.textContent = '0'; // Clear the display
@@ -85,7 +87,13 @@ function captureInputs() {
             } 
 
             else if(key.value === '=') {
-                resultsDisplay.textContent = operate(inputs); // Call operate and display result on the resultsDisplay
+                if (operate(inputs) === 'Division by zero error') {// handles how result is displayed when it a division by zero
+                    resultsDisplay.classList.add('error');
+                    resultsDisplay.textContent = operate(inputs);
+                }
+                else {
+                    resultsDisplay.textContent = operate(inputs); // Call operate and display result on the resultsDisplay
+                }
             }
 
             // Deletes Previous Value
