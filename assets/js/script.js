@@ -65,9 +65,12 @@ function operate(inputs) {
             operator = input;
         }
     });
-
-    result = roundDecimalPlaces(accumulator); // Assign the final result
-    return result;
+    if (accumulator === 'Division by zero error') {
+        return result = accumulator;
+    } else {
+        result = roundDecimalPlaces(accumulator); // Assign the final result
+        return result;
+    }
 }
 
 
