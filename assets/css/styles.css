@@ -5,6 +5,7 @@
     --symbol-color: #35A1A1;
     --orangered-color: orangered;
     --font-color: #000000;
+    --second2-color: rgba(255, 255, 255, 0.75);
     --inputDis-color: rgba(0, 0, 0, 0.60);
 }
 
@@ -16,6 +17,7 @@
     --symbol-color: #35A1A1;
     --orangered-color: orangered;
     --font-color: #FFFFFF;
+    --second2-color: rgba(9, 34, 53, 0.9);
     --inputDis-color: rgba(255, 255, 255, 0.75);
 }
 
@@ -42,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--second-color);
-    /* background-color: rgba(255, 255, 255, 0.75); */
+    background-color: var(--second2-color);
     color: var(--font-color);
     border: none;
     border-radius: 20px;

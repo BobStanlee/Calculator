@@ -144,5 +144,11 @@ const darkTheme = 'dark-theme';
 const themeBtns = document.querySelectorAll('.theme-btn');
 
 themeBtns.forEach((btn) => {
-    
+    btn.addEventListener('click', () => {
+        if(btn.classList.contains('day')) {
+            document.body.classList.remove(darkTheme);
+        } else if (btn.classList.contains('night')) {
+            document.body.classList.add(darkTheme);
+        }
+    })
 })
