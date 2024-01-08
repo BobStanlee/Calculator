@@ -31,9 +31,9 @@ function operate(inputs) {
     let operator = '';
     let accumulator = 0;
     let secondNumber = null;
+    let result = 0;
 
-// Remove empty spaces from the array
-let cleanedArray = inputs.filter(item => item.trim() !== '');
+    let cleanedArray = inputs.filter(item => item.trim() !== '');
 
     cleanedArray.forEach(input => {
         if (!isNaN(parseFloat(input))) {
@@ -42,15 +42,20 @@ let cleanedArray = inputs.filter(item => item.trim() !== '');
             } else {
                 secondNumber = parseFloat(input);
                 if (operator === '+') {
-                    accumulator = add(accumulator, secondNumber);
+                    accumulator = accumulator + secondNumber;
                 } else if (operator === '-') {
-                    accumulator = sub(accumulator, secondNumber);
+                    accumulator = accumulator - secondNumber;
                 } else if (operator === '*') {
-                    accumulator = multiply(accumulator, secondNumber);
+                    accumulator = accumulator * secondNumber;
                 } else if (operator === '/') {
-                    accumulator = divide(accumulator, secondNumber);
+                    if (secondNumber !== 0) {
+                        accumulator = accumulator / secondNumber;
+                    } else {
+                        // Handle division by zero
+                        accumulator = 'Division by zero error';
+                    }
                 } else if (operator === '%') {
-                    accumulator = modulo(accumulator, secondNumber);
+                    accumulator = accumulator % secondNumber;
                 }
                 operator = '';
                 secondNumber = null;
@@ -60,9 +65,10 @@ let cleanedArray = inputs.filter(item => item.trim() !== '');
         }
     });
 
-    result = accumulator; //!== 0 ? accumulator : 'Invalid Input';
+    result = accumulator; // Assign the final result
     return result;
 }
+
 
 // This function stores inputs from the keys and update the display
 function captureInputs() {
