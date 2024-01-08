@@ -136,5 +136,13 @@ function roundDecimalPlaces(number, place=6) {
     return Number(number.toFixed(place));
 }
 
-
 captureInputs();
+
+// Light and Dark theme functionality
+const themeActive = document.querySelector('.theme-active');
+const darkTheme = 'dark-theme';
+const themeBtns = document.querySelectorAll('.theme-btn');
+
+themeBtns.forEach((btn) => {
+    
+})
