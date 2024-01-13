@@ -143,12 +143,32 @@ const themeActive = document.querySelector('.theme-active');
 const darkTheme = 'dark-theme';
 const themeBtns = document.querySelectorAll('.theme-btn');
 
+// Assuming 'themeBtns' is a NodeList or an array of the theme buttons
 themeBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-        if(btn.classList.contains('day')) {
-            document.body.classList.remove(darkTheme);
+        // Check if the clicked button has the 'day' class
+        if (btn.classList.contains('day')) {
+            // Remove the 'theme-active' class from all buttons
+            themeBtns.forEach((otherBtn) => {
+                otherBtn.classList.remove('theme-active');
+            });
+
+            // Toggle the dark theme on the body
+            document.body.classList.toggle(darkTheme);
+
+            // Add 'theme-active' class to the clicked button
+            btn.classList.toggle('theme-active');
         } else if (btn.classList.contains('night')) {
-            document.body.classList.add(darkTheme);
+            // Remove the 'theme-active' class from all buttons
+            themeBtns.forEach((otherBtn) => {
+                otherBtn.classList.remove('theme-active');
+            });
+
+            // Toggle the dark theme on the body
+            document.body.classList.toggle(darkTheme);
+
+            // Add 'theme-active' class to the clicked button
+            btn.classList.toggle('theme-active');
         }
-    })
-})
+    });
+});
